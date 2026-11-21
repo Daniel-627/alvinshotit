@@ -31,6 +31,13 @@ Site: http://localhost:3000 · Admin: http://localhost:3000/admin
 
 Until a project ID is set, the public site shows demo content.
 
+## Dummy content
+```
+npm run seed          # adds 5 categories, 4 projects, 5 videos, 4 services and site settings
+npm run seed:reset    # removes only the dummy content (ids starting with "seed-")
+```
+Needs Node 20.6+ and the project ID + write token in `.env.local`. Safe to re-run: it never overwrites anything you edited. Photos and images are not seeded, so upload your own in `/admin`. Seeded projects show a grey placeholder until you add a cover, and videos use a sample YouTube link until you replace it.
+
 ## Admin
 - **Photos**: drag in many photos at once, pick a category, mark as featured for the home page. Large photos are resized in the browser to 2400px before upload (keeps requests under Netlify's ~6 MB limit).
 - **Categories**: the filter tabs on the Portfolio page.

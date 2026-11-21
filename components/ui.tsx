@@ -25,7 +25,7 @@ export function ProjectTile({ p }: { p: ProjectCard }) {
   return (
     <Link href={`/work/${p.slug}`} className="group block">
       <div className="tile aspect-[4/5]">
-        <Pic img={p.cover} className="!h-full object-cover" sizes="(min-width:1024px) 33vw, 100vw" />
+        {p.cover ? <Pic img={p.cover} className="!h-full object-cover" sizes="(min-width:1024px) 33vw, 100vw" /> : <div className="h-full w-full bg-[radial-gradient(110%_80%_at_50%_20%,#8a8a8a_0%,#2a2a2a_55%,#0f0f0f_100%)]" />}
       </div>
       <p className="eyebrow mt-4">{[p.category, p.date?.slice(0, 4)].filter(Boolean).join(" · ")}</p>
       <h3 className="mt-1 font-display text-2xl">{p.title}</h3>

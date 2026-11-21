@@ -47,6 +47,7 @@ export default function Gallery({ photos, categories }: { photos: Photo[]; categ
         ))}
       </div>
 
+      {shown.length === 0 && <p className="py-20 text-center text-mute">No photos here yet.</p>}
       <div className="columns-2 gap-3 md:columns-3 md:gap-4 xl:columns-4">
         {shown.map((p, i) => (
           <button key={p._id} onClick={() => setOpen(i)} className="tile mb-3 block w-full break-inside-avoid md:mb-4" aria-label={`Open ${p.title || "photo"}`}>
