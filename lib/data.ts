@@ -1,6 +1,6 @@
 import { fetchQuery } from "./sanity";
 import * as demo from "./demo";
-import type { Category, Photo, ProjectCard, Project, VideoItem, PostCard, Post, Service, Settings } from "./types";
+import type { Category, Photo, ProjectCard, Project, VideoItem, Service, Settings } from "./types";
 
 const IMG = `{ "url": asset->url, "width": asset->metadata.dimensions.width, "height": asset->metadata.dimensions.height, "lqip": asset->metadata.lqip, alt }`;
 
@@ -41,16 +41,6 @@ export const getVideos = () =>
     `*[_type=="video"]|order(featured desc, publishedAt desc){_id,title,url,client,kind,description,featured,"thumb":thumbnail${IMG}}`,
     {},
     demo.demoVideos
-  );
-
-export const getPosts = () =>
-  fetchQuery<PostCard[]>(`*[_type=="post"]|order(publishedAt desc){_id,title,"slug":slug.current,publishedAt,excerpt,"cover":cover${IMG}}`, {}, demo.demoPosts);
-
-export const getPost = (slug: string) =>
-  fetchQuery<Post | null>(
-    `*[_type=="post" && slug.current==$slug][0]{_id,title,"slug":slug.current,publishedAt,excerpt,body,"cover":cover${IMG}}`,
-    { slug },
-    demo.demoPosts.find((p) => p.slug === slug) ?? null
   );
 
 export const getServices = () =>

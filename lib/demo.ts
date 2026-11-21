@@ -1,4 +1,4 @@
-import type { Category, Photo, ProjectCard, Project, VideoItem, PostCard, Post, Service } from "./types";
+import type { Category, Photo, ProjectCard, Project, VideoItem, Service } from "./types";
 
 const demoImg = (seed: string, w = 1200, h = 1500, alt = "Demo image") => ({
   url: `https://picsum.photos/seed/${seed}/${w}/${h}?grayscale`,
@@ -31,11 +31,6 @@ export const demoVideos: VideoItem[] = [
   { _id: "v1", title: "Showreel 2026", url: "https://www.youtube.com/watch?v=aqz-KE-bpKQ", kind: "Reel", description: "A cut of this year's best work.", featured: true },
   { _id: "v2", title: "Wedding Highlight", url: "https://www.youtube.com/watch?v=aqz-KE-bpKQ", kind: "Event", client: "Mwangi & Achieng" },
   { _id: "v3", title: "Brand Film", url: "https://www.youtube.com/watch?v=aqz-KE-bpKQ", kind: "Commercial" },
-];
-
-export const demoPosts: Post[] = [
-  { _id: "b1", title: "Why I still shoot in black and white", slug: "why-black-and-white", publishedAt: "2026-10-01", excerpt: "Colour tells you what it looked like. Monochrome tells you how it felt.", cover: demoImg("post1", 1500, 1000), body: [{ _type: "block", _key: "a", style: "normal", children: [{ _type: "span", _key: "b", text: "This is demo content. Write your journal posts in Sanity Studio at /studio.", marks: [] }], markDefs: [] }] },
-  { _id: "b2", title: "Preparing for your first portrait session", slug: "first-portrait-session", publishedAt: "2026-09-10", excerpt: "What to wear, how to relax, and what to expect on the day.", cover: demoImg("post2", 1500, 1000) },
 ];
 
 export const demoServices: Service[] = [

@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Pic from "@/components/Pic";
-import { PostTile, ProjectTile, SectionHead } from "@/components/ui";
-import { getPhotos, getPosts, getProjects, getServices, getSettings, getVideos } from "@/lib/data";
+import { ProjectTile, SectionHead } from "@/components/ui";
+import { getPhotos, getProjects, getServices, getSettings, getVideos } from "@/lib/data";
 
 export default async function Home() {
-  const [photos, projects, videos, services, settings, posts] = await Promise.all([
-    getPhotos(true), getProjects(3), getVideos(), getServices(), getSettings(), getPosts(),
+  const [photos, projects, videos, services, settings] = await Promise.all([
+    getPhotos(true), getProjects(3), getVideos(), getServices(), getSettings(),
   ]);
   const cols = [0, 1, 2].map((c) => photos.filter((_, i) => i % 3 === c).slice(0, 3));
   const reel = videos[0];
@@ -90,12 +90,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {posts.length > 0 && (
-        <section className="container-x mt-28">
-          <SectionHead title="From the journal" href="/journal" />
-          <div className="grid gap-8 md:grid-cols-2">{posts.slice(0, 2).map((p) => <PostTile key={p._id} p={p} />)}</div>
-        </section>
-      )}
 
       <section className="container-x mt-28 text-center">
         <h2 className="h-display text-4xl md:text-7xl">Let&apos;s make something worth keeping.</h2>

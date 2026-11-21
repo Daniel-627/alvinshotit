@@ -75,26 +75,6 @@ export const video = defineType({
   preview: { select: { title: "title", media: "thumbnail", subtitle: "kind" } },
 });
 
-export const post = defineType({
-  name: "post",
-  title: "Journal post",
-  type: "document",
-  fields: [
-    defineField({ name: "title", type: "string", validation: (r) => r.required() }),
-    defineField({ name: "slug", type: "slug", options: { source: "title" }, validation: (r) => r.required() }),
-    defineField({ name: "publishedAt", type: "datetime", initialValue: () => new Date().toISOString() }),
-    defineField({ name: "cover", type: "image", options: { hotspot: true } }),
-    defineField({ name: "excerpt", type: "text", rows: 3 }),
-    defineField({
-      name: "body",
-      type: "array",
-      of: [{ type: "block" }, { type: "image", options: { hotspot: true }, fields: [{ name: "alt", type: "string" }] }],
-    }),
-  ],
-  orderings: [{ title: "Newest", name: "newest", by: [{ field: "publishedAt", direction: "desc" }] }],
-  preview: { select: { title: "title", media: "cover" } },
-});
-
 export const service = defineType({
   name: "service",
   title: "Service",
@@ -130,4 +110,4 @@ export const siteSettings = defineType({
   preview: { prepare: () => ({ title: "Site settings" }) },
 });
 
-export const schemaTypes = [category, photo, project, video, post, service, siteSettings];
+export const schemaTypes = [category, photo, project, video, service, siteSettings];

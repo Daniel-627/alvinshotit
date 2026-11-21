@@ -17,7 +17,6 @@ export default async function Footer() {
             <li><Link href="/portfolio">Portfolio</Link></li>
             <li><Link href="/videos">Videos</Link></li>
             <li><Link href="/services">Services</Link></li>
-            <li><Link href="/journal">Journal</Link></li>
           </ul>
         </div>
         <div className="text-sm">
