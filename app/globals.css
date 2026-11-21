@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; --font-display: 'Outfit Variable'; --font-sans: 'Inter Variable'; }
+html { scroll-behavior: smooth; }
+body { @apply bg-ink text-paper font-sans antialiased; }
+::selection { background: #f4f2ee; color: #0a0a0a; }
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-[1400px] px-5 md:px-10; }
+  .eyebrow { @apply text-[11px] uppercase tracking-wider2 text-mute; }
+  .h-display { @apply font-display font-semibold leading-[0.95] tracking-tight; }
+  .btn { @apply inline-flex items-center gap-2 rounded-full bg-paper px-6 py-3 text-sm font-medium text-ink transition hover:bg-white; }
+  .btn-ghost { @apply inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-medium text-paper transition hover:border-paper; }
+  .tile { @apply relative overflow-hidden rounded-2xl bg-panel; }
+  .tile img { @apply transition duration-700 ease-out; }
+  .tile:hover img { transform: scale(1.04); }
+  .field { @apply w-full rounded-xl border border-line bg-panel px-4 py-3 text-sm text-paper outline-none transition placeholder:text-mute focus:border-paper; }
+  .prose-asi p { @apply mb-5 leading-relaxed text-paper/80; }
+  .prose-asi h2 { @apply mb-3 mt-10 font-display text-2xl font-semibold; }
+  .prose-asi a { @apply underline underline-offset-4; }
+}
